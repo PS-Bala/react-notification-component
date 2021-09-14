@@ -1,0 +1,64 @@
+@import "./../../colors";
+
+.notification-container {
+    width: 360px;
+    background-color: $primaryBackground;
+    border: 1px solid $border;
+    box-shadow: 2px 0px 10px $boxShadowPrimary;
+    border-radius: 10px;
+    min-height: 0px;
+    max-height: 90%;
+    position: absolute;
+    padding: 5px 10px;
+    overflow-y: auto;
+    right: 10px;
+    .title {
+        font-size: 24px;
+        padding: 5px 0px;
+        color: $titleColor;
+        font-weight: 500;
+        display: flex;
+        justify-content: space-between;
+    }
+    .title-menu {
+        top: 2px;
+    }
+    .see-all {
+        padding: 5px 0px;
+        text-align: right;
+        font-size: 15px;
+        color: $blue;
+    }
+
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+        background: $scrollTrackColor;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background: $scrollbarColor;
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+        background: $scrollbarHoverColor;
+    }
+}
+
+@keyframes rotateMenu {
+    0% {
+        transform: rotateX(-90deg);
+    }
+    70% {
+        transform: rotateX(20deg);
+    }
+    100% {
+        transform: rotateX(0deg);
+    }
+}

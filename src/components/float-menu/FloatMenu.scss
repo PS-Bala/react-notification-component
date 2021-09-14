@@ -1,0 +1,67 @@
+@import "./../../colors";
+
+.float-menu {
+    position: relative;
+    .menu-list {
+        font-size: 14px;
+        font-weight: 400;
+        border-radius: 8px;
+        position: absolute;
+        max-height: 225px;
+        overflow-y: auto;
+        z-index: 1;
+        min-width: 100%;
+        right: 0;
+        padding: 5px;
+        background-color: white;
+        border: 1px solid $scrollbarColor;
+        transform-origin: top center;
+        transition: transform 400ms ease-in-out;
+        animation: rotateMenu 400ms ease-in-out forwards;
+        .item {
+            user-select: none;
+            padding: 3px 5px;
+            border-radius: 4px;
+            white-space: nowrap;
+            &:hover {
+                background-color: $hoverColor;
+            }
+        }
+        &.hide {
+            display: none;
+        }
+        &.show {
+            display: block;
+        }
+    }
+    .icon {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .inner-icon {
+            display: inline-block;
+            font-size: 7px;
+            .dot {
+                display: inline-block;
+                height: 5px;
+                width: 5px;
+                background-color: $blue;
+                border-radius: 50%;
+                margin-left: 1px;
+                margin-right: 1px;
+            }
+        }
+        &.open,
+        &:hover,
+        &:focus,
+        &:focus-within {
+            background-color: $hoverColorSecondary;
+        }
+        &:active {
+            background-color: lightblue;
+        }
+    }
+}

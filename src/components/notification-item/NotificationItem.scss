@@ -1,0 +1,53 @@
+@import "../../colors";
+
+.notification-item {
+    padding: 10px 5px;
+    font-size: 15px;
+    padding-right: 14px;
+    border-radius: 10px;
+    color: $secondaryTextColor;
+    .from {
+        display: inline-block;
+        font-weight: 500;
+    }
+    .duration {
+        margin-top: 3px;
+        font-size: 13px;
+        &.not-viewed {
+            font-weight: 500;
+            color: $blue;
+        }
+    }
+    .not-viewed-circle {
+        height: 10px;
+        width: 10px;
+        background-color: $blue;
+        border-radius: 50%;
+        position: absolute;
+        right: 15px;
+        transform: translate(0, -38px);
+    }
+    .float-menu.item-menu {
+        display: none;
+        position: absolute;
+        right: 30px;
+        transform: translate(0, -48px);
+        .icon {
+            background-color: $primaryBackground;
+            &:active {
+                background-color: lightblue;
+            }
+        }
+        &.last {
+            .menu-list {
+                top: -63px;
+            }
+        }
+    }
+    &:hover {
+        background-color: $hoverColorSecondary;
+        .float-menu.item-menu {
+            display: block;
+        }
+    }
+}
