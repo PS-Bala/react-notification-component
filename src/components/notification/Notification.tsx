@@ -5,7 +5,7 @@ import { MenuProps, NotificationProps } from '../../propertyTypes';
 import FloatMenu from './../float-menu/FloatMenu';
 
 function Notification(props: NotificationProps) {
-    const { title, items, updateViewedNotification = () => { }, removeNotification = () => { } } = props;
+    const { title, items, enableFloatMenu, updateViewedNotification = () => { }, removeNotification = () => { }, onSelectNotification = () => {} } = props;
 
     const menuItems: MenuProps[] = [
         {
@@ -29,15 +29,14 @@ function Notification(props: NotificationProps) {
         }
     ];
 
-
     return (
         <div className="notification-container">
             <div className="title">{title}
-                <FloatMenu rootClassName='title-menu' items={menuItems}></FloatMenu>
+                {enableFloatMenu && <FloatMenu rootClassName='title-menu' items={menuItems}></FloatMenu>}
             </div>
             {/* <div className="see-all">{locale.seeAll}</div> */}
             <div className="notification-list">
-                <NotificationItem items={items} menuItems={individualMenuItems}></NotificationItem>
+                <NotificationItem items={items} menuItems={individualMenuItems} onSelectNotification={onSelectNotification} enableFloatMenu={enableFloatMenu}></NotificationItem>
             </div>
         </div>
     )

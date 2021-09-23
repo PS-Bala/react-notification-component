@@ -8,13 +8,17 @@ export interface ItemProps {
 export interface NotificationItemProps {
     items: ItemProps[]
     menuItems: MenuProps[]
+    enableFloatMenu: boolean
+    onSelectNotification?: Function
 }
 
 export interface NotificationProps {
     title: string,
     items: ItemProps[]
+    enableFloatMenu: boolean
     updateViewedNotification?: Function
     removeNotification?: Function
+    onSelectNotification?: Function
 }
 
 export interface MenuProps {

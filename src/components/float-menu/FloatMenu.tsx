@@ -8,19 +8,23 @@ function FloatMenu(props: FloatMenuProps) {
     return (
         <div tabIndex={0} className={`float-menu ${rootClassName}`} onBlur={() => setOpenPopup(false)}>
             <div className={`icon ${openPopup ? "open" : ""}`}
-                onClick={() => setOpenPopup(!openPopup)}
+                onClick={(args) => {
+                    args.stopPropagation();
+                    setOpenPopup(!openPopup);
+                }}
             >
                 <div className="inner-icon">
                     <span className="dot"></span>
                     <span className="dot"></span>
                     <span className="dot"></span>
-                </div >
+                </div>
             </div >
             <div className={`menu-list ${openPopup ? "show" : "hide"}`}>
                 {items.map(item => (
-                    <div key={item.text} className="item" onClick={() => {
-                        item.action(notificationId)
-                        setOpenPopup(false)
+                    <div key={item.text} className="item" onClick={(args) => {
+                        args.stopPropagation();
+                        item.action(notificationId);
+                        setOpenPopup(false);
                     }}>
                         {item.text.includes('Read') ? (viewed ? item.text.replace('Read', 'Unread') : item.text) : item.text}
                     </div>
