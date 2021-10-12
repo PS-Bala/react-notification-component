@@ -52,6 +52,13 @@
     }
 }
 
+@media only screen and (max-width: 400px) {
+    .notification-container {
+        width: 90%;
+    }
+  }
+
+
 @keyframes rotateMenu {
     0% {
         transform: rotateX(-90deg);
